@@ -1,0 +1,14 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-10 po-font-text-large-bold">Detalhes</h3>
+  <div class="po-md-2">
+    <span class="icons color-base po-icon po-icon-edit" (click)="reactiveFormModal.open()"></span>
+  </div>
+  <p class="po-md-12 po-font-text po-mt-md-2 po-mt-sm-1">{{resume.neighborhood}}</p>
+  <p class="po-md-12 po-font-text">{{resume.city}}, {{resume.state}}</p>
+  <p class="po-md-12 po-font-text">{{resume.phone}}</p>
+  <p class="po-md-12 po-font-text">{{resume.email}}</p>
+</po-container>
+
+<po-modal #reactiveFormData p-title="Detalhes">
+  <app-resume-details-form *ngIf="resume" (saved)="reactiveFormModal.close()" [resume]="resume"></app-resume-details-form>
+</po-modal>

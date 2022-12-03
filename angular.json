@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
               "src/styles.less"
             ],
             "scripts": []
@@ -96,9 +97,20 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
               "src/styles.less"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "seek-job:build:production",
+            "firebaseProject": "totvs-ats-mvp",
+            "firebaseHostingSite": "totvs-ats-mvp"
           }
         }
       }

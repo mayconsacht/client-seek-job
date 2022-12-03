@@ -1,0 +1,32 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-11 po-sm-11 po-font-text-large-bold">
+    <span class="po-mr-md-2 po-mr-sm-1 po-icon po-icon-company"></span>Experiência
+  </h3>
+  <div class="po-md-1">
+    <span class="icons color-base po-icon po-icon-plus-circle" (click)="openForm()"></span>
+  </div>
+  <ng-container *ngFor="let experience of resume.employeeHistory; let i = index;">
+    <div class="po-ml-md-3 po-ml-sm-1 po-md-11">
+      <p class="po-md-12 po-mt-md-2 po-mt-sm-2 po-font-text-large-bold">{{experience.companyName}}</p>
+      <div class="po-md-12 ">
+        <span class="po-font-text-small">{{experience.startDate | date: 'dd/MM/yyyy'}}</span> - <span class="po-font-text-small">{{experience.endDate | date: 'dd/MM/yyyy'}}</span>
+      </div>
+      <p class="po-mt-md-2 po-mt-sm-2 po-md-12">{{experience.description}}</p>
+      <po-divider *ngIf="i !== (resume?.employeeHistory?.length! - 1)" class="po-md-12 po-mt-md-2 po-mt-sm-2"></po-divider>
+    </div>
+  </ng-container>
+
+  <div *ngIf="!resume.employeeHistory || resume.employeeHistory?.length == 0" class="po-md-12 po-mt-md-2 po-mt-sm-1">
+    <div class="po-ml-md-3 po-ml-sm-1 po-md-11">
+      <p class="po-font-text-bold">Adicione suas experiências em outras empresas</p>
+      <p class="po-font-text">Através das suas experiências os recrutadores poderam saber em quais empresas e por quanto tempo você já trabalhou</p>
+      <div class="po-row">
+        <po-button class="no-padding po-md-4 po-mt-md-1 po-mt-sm-1" p-label="Nova experiência" (p-click)="openForm()"> </po-button>
+      </div>
+    </div>
+  </div>
+</po-container>
+
+<po-modal #reactiveFormDataEx p-title="Experiência">
+  <app-resume-experience-form (saved)="save($event)" [history]="currentHistory"></app-resume-experience-form>
+</po-modal>

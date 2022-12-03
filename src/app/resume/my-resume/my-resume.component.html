@@ -1,0 +1,37 @@
+<section>
+  <div class="clearfix">
+    <h1 class="po-font-title po-md-12">Meu currículo</h1>
+    <ng-container *ngIf="resume; else empty;">
+      <po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+        <div class="po-md-12">
+          <div class="grid grid-template-columns">
+            <po-avatar p-src="https://po-ui.io/assets/graphics/logo-po.png"> </po-avatar>
+            <h2 class="align po-font-subtitle">
+              {{resume.name}}
+            </h2>
+          </div>
+        </div>
+        <div class="po-md-3">
+          <app-resume-details [resume]="resume"></app-resume-details>
+          <app-resume-skills [resume]="resume"></app-resume-skills>
+          <app-resume-languages [resume]="resume"></app-resume-languages>
+        </div>
+        <div class="po-md-9">
+          <app-resume-about [resume]="resume"></app-resume-about>
+          <app-resume-experience [resume]="resume"></app-resume-experience>
+          <app-resume-education [resume]="resume"></app-resume-education>
+        </div>
+      </po-container>
+    </ng-container>
+
+    <ng-template #empty>
+      <div *ngIf="!loading">
+        <h2 class="po-font-text-large po-md-12 po-mt-md-3 po-mt-sm-2">Ops! Você ainda não cadastrou o um currículo. Vamos te ajudar com isso, cadastre algumas infomações básicas abaixo para iniciar.</h2>
+        <po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+          <app-resume-details-form></app-resume-details-form>
+        </po-container>
+      </div>
+    </ng-template>
+  </div>
+  <po-loading-overlay *ngIf="loading" [p-screen-lock]="true"></po-loading-overlay>
+</section>

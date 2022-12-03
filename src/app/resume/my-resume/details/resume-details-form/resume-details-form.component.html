@@ -1,0 +1,19 @@
+<form [formGroup]="reactiveForm">
+  <po-divider class="po-md-12" p-label="Dados pessoais"></po-divider>
+  <po-input class="po-md-12" formControlName="name" p-icon="po-icon-user" p-label="Nome">
+  </po-input>
+  <po-email class="po-md-8" formControlName="email" p-label="Email">
+  </po-email>
+  <po-input class="po-md-4" formControlName="phone" p-icon="po-icon-telephone" p-label="Telefone">
+  </po-input>
+  <po-divider class="po-md-12 po-mt-md-1 po-mt-sm-1" p-label="Endereço"></po-divider>
+  <po-input class="po-md-4" formControlName="neighborhood" p-icon="po-icon-pin" p-label="Bairro">
+  </po-input>
+  <po-input class="po-md-4" formControlName="city" p-icon="po-icon-pin" p-label="Cidade">
+  </po-input>
+  <po-input class="po-md-4" formControlName="state" p-icon="po-icon-pin" p-label="Sigla do estado">
+  </po-input>
+  <div class="po-row">
+    <po-button class="po-md-4 po-mt-md-1 po-mt-sm-1" p-type="primary" p-label="Salvar" [p-disabled]="!reactiveForm.valid" (p-click)="saveForm()"> </po-button>
+  </div>
+</form>

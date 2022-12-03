@@ -1,0 +1,8 @@
+<form [formGroup]="reactiveForm">
+  <p class="po-font-text po-sm-12">Escreva sobre seus anos de experiência, setor ou competências. Muitas pessoas também descrevem suas conquistas ou empregos anteriores</p>
+  <po-textarea class="po-sm-12" formControlName="profileDescription" p-rows="8">
+  </po-textarea>
+  <div class="po-row">
+    <po-button class="po-md-4 po-mt-md-1 po-mt-sm-1" p-type="primary" p-label="Salvar" [p-disabled]="!reactiveForm.valid" (p-click)="saveForm()"> </po-button>
+  </div>
+</form>

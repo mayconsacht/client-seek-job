@@ -1,0 +1,48 @@
+:host ::ng-deep {
+  .po-modal-footer {
+    display: none;
+  }
+
+  .po-modal-header {
+    padding: 16px 0 8px 12px;
+  }
+
+  .po-modal-body {
+    margin-bottom: 16px;
+  }
+
+  .po-container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    @media screen and (min-width: 1366px) {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+}
+.grid {
+  display: grid;
+}
+
+.grid-template-columns {
+  grid-template-columns: 80px auto;
+}
+
+.align {
+  display: table-cell;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+  margin-bottom: 50px;
+}

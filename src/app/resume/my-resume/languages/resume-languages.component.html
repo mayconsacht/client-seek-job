@@ -1,0 +1,24 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-10 po-font-text-large-bold">Idiomas</h3>
+  <div class="po-md-2">
+    <span class="icons color-base po-icon po-icon-plus-circle" (click)="newLanguage()"></span>
+  </div>
+  <div *ngIf="languages.length > 0" class="no-padding po-md-12 po-mt-md-2 po-mt-sm-2">
+    <ng-container *ngFor="let language of languages; let i = index;">
+      <div *ngIf="language.isEdit">
+        <po-input class="po-md-10" [(ngModel)]="languages[i].description">
+        </po-input>
+        <po-button class="no-padding po-md-2 po-mt-md-1 po-mt-sm-1" p-icon="po-icon-ok" (p-click)="save()"> </po-button>
+      </div>
+      <p *ngIf="!language.isEdit" class="po-md-12 po-font-text">{{language.description}}</p>
+      <po-divider *ngIf="i !== (languages.length-1)" class="po-md-12"></po-divider>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!languages || languages?.length == 0" class="po-md-12 po-mt-md-2 po-mt-sm-1">
+    <p class="po-font-text">Informe os idiomas que você conhece</p>
+    <div class="po-row">
+      <po-button class="no-padding po-md-12 po-mt-md-1 po-mt-sm-1" p-label="Novo idioma" (p-click)="newLanguage()"> </po-button>
+    </div>
+  </div>
+</po-container>

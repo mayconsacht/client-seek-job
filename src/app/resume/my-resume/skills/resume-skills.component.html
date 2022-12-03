@@ -1,0 +1,24 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-10 po-font-text-large-bold">Competências</h3>
+  <div class="po-md-2">
+    <span class="icons color-base po-icon po-icon-plus-circle" (click)="newSkill()"></span>
+  </div>
+  <div *ngIf="skills.length > 0" class="no-padding po-md-12 po-mt-md-2 po-mt-sm-2">
+    <ng-container *ngFor="let skill of skills; let i = index;">
+      <div *ngIf="skill.isEdit">
+        <po-input class="po-md-10" [(ngModel)]="skills[i].description">
+        </po-input>
+        <po-button class="no-padding po-md-2 po-mt-md-1 po-mt-sm-1" p-icon="po-icon-ok" (p-click)="save()"> </po-button>
+      </div>
+      <p *ngIf="!skill.isEdit" class="po-md-12 po-font-text">{{skill.description}}</p>
+      <po-divider *ngIf="i !== (skills.length-1)" class="po-md-12"></po-divider>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!skills || skills?.length == 0" class="po-md-12 po-mt-md-2 po-mt-sm-1">
+    <p class="po-font-text">Informe o nome de tecnologias, metodologias ou qualquer outra competência que você tem</p>
+    <div class="po-row">
+      <po-button class="no-padding po-md-12 po-mt-md-1 po-mt-sm-1" p-label="Nova competência" (p-click)="newSkill()"> </po-button>
+    </div>
+  </div>
+</po-container>

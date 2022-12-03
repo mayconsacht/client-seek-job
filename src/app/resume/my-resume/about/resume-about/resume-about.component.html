@@ -1,0 +1,22 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-11 po-font-text-large-bold">
+    <span class="po-mr-md-2 po-mr-sm-1 po-icon po-icon-user"></span>Sobre
+  </h3>
+  <div *ngIf="resume.profileDescription" class="po-md-1">
+    <span class="icons color-base po-icon po-icon-edit" (click)="reactiveFormModal.open()"></span>
+  </div>
+  <div *ngIf="resume.profileDescription" class="po-ml-md-4 po-ml-sm-1 po-mt-md-2 po-mt-sm-1 po-md-11">
+    <p>{{resume.profileDescription}}</p>
+  </div>
+  <div *ngIf="!resume.profileDescription" class="po-ml-md-4 po-ml-sm-1 po-mt-md-2 po-mt-sm-1 po-md-11">
+    <p class="po-font-text-bold">Crie um resumo que destaque sua experiência e interesses</p>
+    <p class="po-font-text">O resumo é a primeira coisa que recrutadores leem no seu perfil</p>
+    <div class="po-row">
+      <po-button *ngIf="!resume.profileDescription" class="no-padding po-md-4 po-mt-md-1 po-mt-sm-1" p-label="Adicionar resumo" (p-click)="reactiveFormModal.open()"> </po-button>
+    </div>
+  </div>
+</po-container>
+
+<po-modal #reactiveFormData p-title="Sobre">
+  <app-resume-about-form *ngIf="resume" (saved)="reactiveFormModal.close()" [resume]="resume"></app-resume-about-form>
+</po-modal>

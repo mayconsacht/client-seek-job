@@ -1,0 +1,13 @@
+<form [formGroup]="reactiveForm">
+  <po-input class="po-md-12" formControlName="instituition" p-icon="po-icon-company" p-label="Instituição de ensino">
+  </po-input>
+  <po-datepicker class="po-md-6" formControlName="startDate" p-clean p-format="mm/yyyy" p-label="Data de início">
+  </po-datepicker>
+  <po-datepicker class="po-md-6" formControlName="endDate" p-clean p-format="mm/yyyy" p-label="Data de término">
+  </po-datepicker>
+  <po-textarea class="po-sm-12" formControlName="description" p-label="Descrição sobre a formação " p-rows="5">
+  </po-textarea>
+  <div class="po-row">
+    <po-button class="po-md-4 po-mt-md-1 po-mt-sm-1" p-type="primary" p-label="Salvar" [p-disabled]="!reactiveForm.valid" (p-click)="saveForm()"> </po-button>
+  </div>
+</form>

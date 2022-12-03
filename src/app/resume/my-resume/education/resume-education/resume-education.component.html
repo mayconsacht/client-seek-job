@@ -1,0 +1,32 @@
+<po-container class="po-md-12 po-mt-md-3 po-mt-sm-2">
+  <h3 class="po-md-11 po-sm-11 po-font-text-large-bold">
+    <span class="po-mr-md-2 po-mr-sm-1 po-icon po-icon-book"></span>Formação
+  </h3>
+  <div class="po-md-1">
+    <span class="icons color-base po-icon po-icon-plus-circle" (click)="reactiveFormModal.open()"></span>
+  </div>
+  <ng-container *ngFor="let education of resume.education; let i = index;">
+    <div class="po-ml-md-3 po-ml-sm-1 po-md-11">
+      <p class="po-md-12 po-mt-md-2 po-mt-sm-2 po-font-text-large-bold">{{education.instituition}}</p>
+      <div class="po-md-12 ">
+        <span class="po-font-text-small">{{education.startDate | date: 'MM/yyyy'}}</span> - <span class="po-font-text-small">{{education.endDate | date: 'MM/yyyy'}}</span>
+      </div>
+      <p class="po-mt-md-2 po-mt-sm-2 po-md-12">{{education.description}}</p>
+      <po-divider *ngIf="i !== (resume.education.length-1)" class="po-md-12 po-mt-md-2 po-mt-sm-2"></po-divider>
+    </div>
+  </ng-container>
+
+  <div *ngIf="!resume.education || resume.education?.length == 0" class="po-md-12 po-mt-md-2 po-mt-sm-1">
+    <div class="po-ml-md-3 po-ml-sm-1 po-md-11">
+      <p class="po-font-text-bold">Informe quais instituições de ensino você já frequêntou</p>
+      <p class="po-font-text">Irá ajudar os recrutadores a entenderem melhor sua formação e linha de estudo</p>
+      <div class="po-row">
+        <po-button class="no-padding po-md-4 po-mt-md-1 po-mt-sm-1" p-label="Nova formação" (p-click)="openForm()"> </po-button>
+      </div>
+    </div>
+  </div>
+</po-container>
+
+<po-modal #reactiveFormDataEd p-title="Formação">
+  <app-resume-education-form (saved)="save($event)" [education]="currentFormation"></app-resume-education-form>
+</po-modal>

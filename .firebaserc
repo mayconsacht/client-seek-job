@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "totvs-ats-mvp"
+  },
+  "targets": {
+    "totvs-ats-mvp": {
+      "hosting": {
+        "seek-job": [
+          "totvs-ats-mvp"
+        ]
+      }
+    }
+  }
+}
